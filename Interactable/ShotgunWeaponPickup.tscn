@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/3D/Guns/ShotGun.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Assets/3D/Guns/ShotGun.png" type="Texture" id=2]
+[ext_resource path="res://Interactable/scripts/weaponpickup/ShotgunWeaponPickup.gd" type="Script" id=3]
+[ext_resource path="res://Player/Weapons/AssaultRifle.tscn" type="PackedScene" id=4]
+
+[sub_resource type="SpatialMaterial" id=12]
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="BoxShape" id=13]
+extents = Vector3( 8.17184, 2.47419, 1 )
+
+[node name="ShotgunWeaponPickup" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 12 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 3 )
+weapon_scene = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50938, 0 )
+shape = SubResource( 13 )
