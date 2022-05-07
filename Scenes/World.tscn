@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Interactable/WeaponPickup.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Interactable/ShotgunWeaponPickup.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Interactable/AssaultRifleWeaponPickup.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Interactable/SmgWeaponPickup.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CubeMesh" id=5]
 
@@ -135,6 +136,9 @@ valign = 1
 
 [node name="ShotgunWeaponPickup" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6018, -0.68461, -17.8676 )
+
+[node name="AssaultRifleWeaponPickup2" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25727, 0, -17.8507 )
 
 [node name="AssaultRifleWeaponPickup" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.869 )

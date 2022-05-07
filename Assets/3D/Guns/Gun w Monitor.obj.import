@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Gun w Monitor.obj-c81757775633ec3d4950dc3294ee183a.mesh"
+
+[deps]
+
+files=[ "res://.import/Gun w Monitor.obj-c81757775633ec3d4950dc3294ee183a.mesh" ]
+
+source_file="res://Assets/3D/Guns/Gun w Monitor.obj"
+dest_files=[ "res://.import/Gun w Monitor.obj-c81757775633ec3d4950dc3294ee183a.mesh", "res://.import/Gun w Monitor.obj-c81757775633ec3d4950dc3294ee183a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
