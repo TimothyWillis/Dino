@@ -11,7 +11,7 @@ albedo_texture = ExtResource( 3 )
 script = ExtResource( 2 )
 fire_rate = 0.25
 clip_size = 60
-recoil_offset = Vector3( 0, 10, 0 )
+fire_range = 75
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )

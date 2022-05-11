@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Audio/gunfire01.mp3" type="AudioStream" id=2]
@@ -7,9 +7,12 @@
 [ext_resource path="res://Interactable/scripts/Interaction.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/GunCamera.gd" type="Script" id=6]
 
-[sub_resource type="CapsuleShape" id=1]
-radius = 0.75
-height = 1.25
+[sub_resource type="CylinderShape" id=4]
+radius = 0.77
+height = 2.42
+
+[sub_resource type="Animation" id=3]
+resource_name = "TestAnim"
 
 [sub_resource type="CapsuleMesh" id=2]
 radius = 0.75
@@ -19,8 +22,7 @@ mid_height = 1.25
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 
 [node name="Head" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08782, 0 )
@@ -40,6 +42,11 @@ script = ExtResource( 4 )
 
 [node name="GunAudio" type="AudioStreamPlayer3D" parent="Head/Camera/GunController"]
 stream = ExtResource( 2 )
+
+[node name="HeatTimer" type="Timer" parent="Head/Camera/GunController"]
+
+[node name="GunAnimationPlayer" type="AnimationPlayer" parent="Head/Camera/GunController"]
+anims/TestAnim = SubResource( 3 )
 
 [node name="WeaponRayCast" type="RayCast" parent="Head/Camera"]
 enabled = true

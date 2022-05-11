@@ -72,6 +72,8 @@ func cycle_weapon():
 		
 		gunslot_1.get_child(0).set_process(true)
 		gunslot_1.show()
+		gunslot_1.get_child(0).refresh_gun()
+		#refresh_raycast(gunslot_1)
 		
 		current_weapon = 1
 	elif current_weapon == 1 and gunslot_0.get_child(0):
@@ -80,12 +82,20 @@ func cycle_weapon():
 		
 		gunslot_0.get_child(0).set_process(true)
 		gunslot_0.show()
+		gunslot_0.get_child(0).refresh_gun()
+		#refresh_raycast(gunslot_0)
 		
 		current_weapon = 0
-	print(current_weapon)
+	print(current_weapon)	
+
+func refresh_raycast(gunslot):
+	var raycast = gunslot.get_child(0).raycast
+	var fire_range = gunslot.get_child(0).fire_range
+	raycast.cast_to = Vector3(0,0, -fire_range)
 
 # Removes current weapon from player and spawns new weapon pickup item with stats of gun
 func drop_weapon(gunslot):
+	#TODO spawn gun pickup
 	gunslot.get_child(0).queue_free()
 
 func already_have_weapon(weapon):

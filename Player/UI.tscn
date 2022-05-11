@@ -1,0 +1,32 @@
+[gd_scene format=2]
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Ammo" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -123.0
+margin_top = -58.0
+text = "Ammo 5/5"
+
+[node name="GunName" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -123.0
+margin_top = -40.0
+text = "Gun"
+
+[node name="InteractionLabel" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -46.0
+text = "Press E to interact"
+align = 1
+valign = 1

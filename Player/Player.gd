@@ -3,7 +3,11 @@ extends KinematicBody
 # Exported variables
 export var speed = 10
 export var acceleration = 5
-export var gravity = 0.98
+export var crouch_speed = 5
+export var crouch_acceleration = 4
+export var sprint_speed = 15
+export var sprint_acceleration = 8
+export var gravity = 0.9
 export var jump_power = 30
 export var mouse_sensitivity = 0.3
 
@@ -39,12 +43,12 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("move_forward"):
 		direction -= head_basis.z
-	elif Input.is_action_pressed("move_backward"):
+	if Input.is_action_pressed("move_backward"):
 		direction += head_basis.z
 		
 	if Input.is_action_pressed("move_left"):
 		direction -= head_basis.x
-	elif Input.is_action_pressed("move_right"):
+	if Input.is_action_pressed("move_right"):
 		direction += head_basis.x
 	
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -52,7 +56,23 @@ func _physics_process(delta):
 	
 	direction = direction.normalized()
 	
-	velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
+	if Input.is_action_pressed("sprint"):
+		velocity = velocity.linear_interpolate(direction * sprint_speed, sprint_acceleration * delta)
+	elif Input.is_action_pressed("crouch"):
+		velocity = velocity.linear_interpolate(direction * crouch_speed, crouch_acceleration * delta)		
+	else:
+		velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
+	
+	
 	velocity.y -= gravity
 	velocity = move_and_slide(velocity, Vector3.UP)
 
+
+func get_velocity(direction, delta):
+	if Input.is_action_pressed("sprint"):
+		velocity = velocity.linear_interpolate(direction * sprint_speed, sprint_acceleration * delta)
+	elif Input.is_action_pressed("crouch"):
+		velocity = velocity.linear_interpolate(direction * crouch_speed, crouch_acceleration * delta)		
+	else:
+		velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
+	return velocity

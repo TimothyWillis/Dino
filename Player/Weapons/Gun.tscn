@@ -16,3 +16,8 @@ layers = 2
 mesh = ExtResource( 1 )
 skeleton = NodePath("../../../../Weapon")
 material/0 = SubResource( 3 )
+
+[node name="RayCast" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0 )
+enabled = true
+cast_to = Vector3( 10, 0, 0 )
