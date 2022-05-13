@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Audio/gunfire01.mp3" type="AudioStream" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scripts/GunController.gd" type="Script" id=4]
 [ext_resource path="res://Interactable/scripts/Interaction.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/GunCamera.gd" type="Script" id=6]
+[ext_resource path="res://Player/Weapons/Pistol.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CylinderShape" id=4]
 radius = 0.77
@@ -39,6 +40,8 @@ script = ExtResource( 4 )
 [node name="Gun" parent="Head/Camera/GunController/GunSlot0" instance=ExtResource( 3 )]
 
 [node name="GunSlot1" type="Spatial" parent="Head/Camera/GunController"]
+
+[node name="Pistol" parent="Head/Camera/GunController/GunSlot1" instance=ExtResource( 7 )]
 
 [node name="GunAudio" type="AudioStreamPlayer3D" parent="Head/Camera/GunController"]
 stream = ExtResource( 2 )

@@ -25,11 +25,12 @@ func _ready():
 		gunslot_1.hide()
 	pass
 
-
-func _process(delta):
-	
-	if Input.is_action_just_pressed("swap_weapon"):
-		cycle_weapon()
+# Mouse wheel swap weapon
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.is_pressed():
+			if event.button_index == BUTTON_WHEEL_UP or event.button_index == BUTTON_WHEEL_DOWN:
+				cycle_weapon()
 
 # Determine the weapon to be picked up
 func parse_weapon_pickup(weapon):
